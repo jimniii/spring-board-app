@@ -34,8 +34,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: #
-    password: #
+    username: qq923359@gmail.com
+    password: ufuerhcauxwrknop
     properties:
       mail:
         smtp:
@@ -53,3 +53,8 @@ spring:
       name: user
       password: 1234
       roles: ADMIN
+
+  servlet:
+    multipart:
+      location: upload
+      max-file-size: 10MB
