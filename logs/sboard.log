@@ -8816,3 +8816,9 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class kr.co.s
 2025-09-29T16:44:02.062+09:00  INFO 15296 --- [sboard] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/sboard'
 2025-09-29T16:44:02.066+09:00  INFO 15296 --- [sboard] [restartedMain] kr.co.sboard.SboardApplication           : Started SboardApplication in 0.867 seconds (process running for 534.472)
 2025-09-29T16:44:02.067+09:00  INFO 15296 --- [sboard] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-09-29T16:56:18.082+09:00  INFO 15296 --- [sboard] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 29 class path changes (0 additions, 0 deletions, 29 modifications)
+2025-09-29T16:56:18.083+09:00  INFO 15296 --- [sboard] [Thread-35] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-29T16:56:18.164+09:00  INFO 15296 --- [sboard] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-09-29T16:56:18.165+09:00  INFO 15296 --- [sboard] [Thread-35] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-09-29T16:56:18.166+09:00  INFO 15296 --- [sboard] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2025-09-29T16:56:18.265+09:00  INFO 15296 --- [sboard] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
