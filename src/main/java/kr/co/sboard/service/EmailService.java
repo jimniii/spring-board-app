@@ -1,6 +1,5 @@
 package kr.co.sboard.service;
 
-import com.sun.jdi.event.ExceptionEvent;
 import jakarta.mail.Message;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
@@ -11,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -23,12 +21,13 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
-
     @Value("${spring.mail.username}")
     private String sender;
 
 
+
     private final SessionDataDTO sessionData;
+
 
     public void sendCode(String receiver){
 
@@ -49,6 +48,7 @@ public class EmailService {
             mailSender.send(message);
 
             // 현재 세션 저장(현재 클라이언트)
+            //session.setAttribute("sessCode", String.valueOf(code));
             sessionData.setCode(String.valueOf(code));
 
         }catch (Exception e){
@@ -60,6 +60,7 @@ public class EmailService {
     public boolean verifyCode(String code){
 
         // 현재 세션 코드 가져오기
+        //String sessCode = (String) session.getAttribute("sessCode");
         String sessCode = sessionData.getCode();
 
         if(sessCode.equals(code)){
