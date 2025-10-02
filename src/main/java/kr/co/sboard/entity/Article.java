@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-//@Setter
+@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,6 +32,7 @@ public class Article {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "writer")
     private User user;
+
     //private String writer;
 
     private String reg_ip;

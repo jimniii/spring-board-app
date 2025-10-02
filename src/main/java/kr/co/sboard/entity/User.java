@@ -11,19 +11,21 @@ import java.time.LocalDateTime;
 
 
 @Getter
+@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
+@Builder
 @Table(name= "SB_USER")
 public class User {
 
 
     @Id
     private String usid;
-    private String pass;
     private String us_name;
+    private String pass;
+
     private String nick;
     private String email;
     private String hp;

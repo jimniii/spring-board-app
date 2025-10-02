@@ -27,7 +27,11 @@ public class ArticleController {
     @GetMapping("/article/list")
     public String list(Model model, PageRequestDTO pageRequestDTO){
 
-        PageResponseDTO pageResponseDTO = articleService.getArticleAll(pageRequestDTO);
+        // JPA
+        //PageResponseDTO pageResponseDTO = articleService.getArticleAll(pageRequestDTO);
+
+        // Mybatis
+        PageResponseDTO pageResponseDTO = articleService.selectArticleAll(pageRequestDTO);
 
         model.addAttribute(pageResponseDTO);
 
@@ -70,7 +74,7 @@ public class ArticleController {
 
         String regip = request.getRemoteAddr();
         articleDTO.setReg_ip(regip);
-        log.info("articleDTO = {}", articleDTO);
+        log.info("articleDTO writer = {}", articleDTO.getWriter());
 
         // 파일 업로드
         List<FileDTO> fileDTOList = fileService.upload(articleDTO);

@@ -29,6 +29,11 @@ public class PageRequestDTO {
     private String searchType;
     private String keyword;
 
+    // 페이지 처리
+    private int offset;
+    public int getOffset() {
+        return (pg -1) * size;
+    }
 
     public Pageable getPageable(String sort){
         return PageRequest.of(this.pg - 1, this.size, Sort.by(sort).descending());

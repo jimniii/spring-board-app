@@ -1,5 +1,6 @@
 package kr.co.sboard.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import kr.co.sboard.dto.CommentDTO;
 import kr.co.sboard.service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -31,9 +32,14 @@ public class CommentController {
     }
 
     @PostMapping("/comment")
-    public ResponseEntity<?> register(@RequestBody CommentDTO commentDTO){
-        commentService.save(commentDTO);
-        return ResponseEntity.ok("success");
+    public ResponseEntity<?> register(@RequestBody CommentDTO commentDTO, HttpServletRequest request){
+        log.info("commentDTO = {}", commentDTO);
+
+        String regip = request.getRemoteAddr();
+        commentDTO.setReg_ip(regip);
+
+        CommentDTO savedComment = commentService.save(commentDTO);
+        return ResponseEntity.ok(savedComment);
     }
 
     @PutMapping("/comment")
